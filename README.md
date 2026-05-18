@@ -85,10 +85,6 @@ Retrieves the username history fora particular user by user id
     - [`Default Value`] Asc
 
 #### Example
-```
-```
-
-#### Example
 
 ##### cURL
 ```bash
