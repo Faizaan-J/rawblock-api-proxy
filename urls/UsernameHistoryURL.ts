@@ -10,7 +10,6 @@ class UsernameHistoryURL extends URLCLass {
         if (nextCursor != undefined && nextCursor != "") {
             url.searchParams.append("cursor", nextCursor);
         }
-        console.log("Generated URL: ", url.toString());
         return url;
     }
 }
