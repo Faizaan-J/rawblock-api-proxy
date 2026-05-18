@@ -1,5 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import UsernameHistoryURL from '../../urls/UsernameHistoryURL';
+import APIEntry from '../../classes/APIEntry';
 
 const handler = async (request: VercelRequest, response: VercelResponse) => {
     const query = request.query;
@@ -32,4 +33,6 @@ const handler = async (request: VercelRequest, response: VercelResponse) => {
     });
 }
 
-export default handler;
+const entry = new APIEntry(handler);
+
+export default entry.getGeneratedFunction();

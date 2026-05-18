@@ -17,12 +17,36 @@ Gets detailed user info by user id.
     - [`Description`] The user id of the player.
 
 #### Example
+
+##### cURL
+```bash
+curl -X GET "https://rawblock-api-proxy.vercel.app/api/users/detailed-user-info?userId=1" \
+  -H "Authorization: Bearer {API_KEY_HERE}"
 ```
-https://rawblock-api-proxy.vercel.app/api/users/detailed-user-info?userId=1
+
+##### Javascript (fetch)
+```javascript
+const response = fetch("https://rawblock-api-proxy.vercel.app/api/users/detailed-user-info?userId=1", {
+    headers: {
+        "Authorization": "Bearer {API_KEY_HERE}"
+    }
+});
+```
+
+##### Rawblock
+```lua
+local HTTPService = game:GetService("HttpService")
+local Response = HTTPService:RequestAsync({
+  Url = "https://rawblock-api-proxy.vercel.app/api/users/detailed-user-info?userId=1",
+  Method = "GET",
+  Headers = {
+    ["Authorization"] = "Bearer {API_KEY_HERE}"
+  }
+})
 ```
 
 #### Schema
-```
+```json
 {
   "body": {
     "description": "string",
@@ -62,11 +86,39 @@ Retrieves the username history fora particular user by user id
 
 #### Example
 ```
-https://rawblock-api-proxy.vercel.app/api/users/username-history?userId=140258990&limit=10&sortOrder=Asc
+```
+
+#### Example
+
+##### cURL
+```bash
+curl -X GET "https://rawblock-api-proxy.vercel.app/api/users/username-history?userId=140258990&limit=10&sortOrder=Asc" \
+  -H "Authorization: Bearer {API_KEY_HERE}"
+```
+
+##### Javascript (fetch)
+```javascript
+const response = fetch("https://rawblock-api-proxy.vercel.app/api/users/username-history?userId=140258990&limit=10&sortOrder=Asc", {
+    headers: {
+        "Authorization": "Bearer {API_KEY_HERE}"
+    }
+});
+```
+
+##### Rawblock
+```lua
+local HTTPService = game:GetService("HttpService")
+local Response = HTTPService:RequestAsync({
+  Url = "https://rawblock-api-proxy.vercel.app/api/users/username-history?userId=140258990&limit=10&sortOrder=Asc",
+  Method = "GET",
+  Headers = {
+    ["Authorization"] = "Bearer {API_KEY_HERE}"
+  }
+})
 ```
 
 #### Schema
-```
+```json
 {
   "body": {
     "usernames": [
