@@ -73,7 +73,7 @@ Retrieves the username history fora particular user by user id
     - [`Type`] Integer
     - [`Description`] The user id of the player.
 2. [`limit`]:
-    - [`Type`] Integer, ONLY 10 |25 | 50 | 100
+    - [`Type`] Integer, ONLY 10 | 25 | 50 | 100
     - [`Description`] The number of results per request
     - [`Default Value`] 10
 3. [`cursor`]:
