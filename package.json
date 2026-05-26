@@ -12,7 +12,6 @@
   "type": "commonjs",
   "devDependencies": {
     "@vercel/node": "^5.7.17",
-    "next": "^16.2.6",
     "typescript": "^6.0.3"
   }
 }
