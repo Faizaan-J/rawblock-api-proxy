@@ -1,3 +1,6 @@
+import type { VercelRequestQuery } from '@vercel/node';
+import * as zod from "zod";
+
 abstract class URLCLass {
     constructor() {
         if (new.target === URLCLass) {
@@ -5,7 +8,7 @@ abstract class URLCLass {
         }
     }
 
-    abstract generate(...args: any): URL;
+    abstract generate(query: VercelRequestQuery): URL | zod.z.core.$ZodIssue[];
 }
 
 export default URLCLass;
