@@ -65,7 +65,7 @@ local Response = HTTPService:RequestAsync({
 ```
 
 ### Username History
-Retrieves the username history fora particular user by user id
+Retrieves the username history for a particular user by user id
 
 #### Parameters:
 1.  [`userId`]:
