@@ -35,14 +35,17 @@ const response = fetch("https://rawblock-api-proxy.vercel.app/api/users/detailed
 
 ##### Rawblock
 ```lua
-local HTTPService = game:GetService("HttpService")
-local Response = HTTPService:RequestAsync({
-  Url = "https://rawblock-api-proxy.vercel.app/api/users/detailed-user-info?userId=1",
-  Method = "GET",
-  Headers = {
-    ["Authorization"] = "Bearer {API_KEY_HERE}"
-  }
+local RawblockHelpers = require("./RawblockHelpers") -- replace with the path you put RawblockHelpers in
+
+local Response = RawblockHelpers.GetDetailedUserInfo({
+	UserId = 1
 })
+
+if (Response.success) then
+	local Data = Response.data
+else
+	warn(Response.error)
+end
 ```
 
 #### Schema
@@ -52,7 +55,7 @@ local Response = HTTPService:RequestAsync({
     "description": "string",
     "created": "2014-08-14T15:41:32.713Z",
     "isBanned": false,
-    "externalAppDisplayName": null,
+    "externalAppDisplayName": "string" | null,
     "hasVerifiedBadge": true,
     "id": 0,
     "name": "string",
@@ -103,14 +106,19 @@ const response = fetch("https://rawblock-api-proxy.vercel.app/api/users/username
 
 ##### Rawblock
 ```lua
-local HTTPService = game:GetService("HttpService")
-local Response = HTTPService:RequestAsync({
-  Url = "https://rawblock-api-proxy.vercel.app/api/users/username-history?userId=140258990&limit=10&sortOrder=Asc",
-  Method = "GET",
-  Headers = {
-    ["Authorization"] = "Bearer {API_KEY_HERE}"
-  }
+local RawblockHelpers = require("./RawblockHelpers") -- replace with the path you put RawblockHelpers in
+
+local Response = RawblockHelpers.GetUsernameHistory({
+	UserId = 140258990,
+	SortOrder = "Asc",
+	Limit = 50
 })
+
+if (Response.success) then
+	local Data = Response.data
+else
+	warn(Response.error)
+end
 ```
 
 #### Schema
@@ -131,3 +139,25 @@ local Response = HTTPService:RequestAsync({
   }
 }
 ```
+## How to setup Rawblock API Proxy & RawblockHelpers
+### Rawblock API Proxy
+1. Clone the repository
+2. Download [`Vercel CLI`](https://vercel.com/docs/cli).
+3. Run ```vercel``` to link the repository to a Vercel project.
+4. Open the Vercel project that was made and go the `Environment Variables` section.
+5. Press `Add Environment Variable` and set the key to `AUTH`.
+6. For the value, I recommend using [randomkeygen.com](https://randomkeygen.com/api-key). Just take a key from there and paste it in. Make sure to save it so that you can also put the key for your Rawblock experience.
+7. Redeploy the app. There should be a dialog in the bottom right of the screen.
+
+From there, the Vercel app should be setup but now to use it in Rawblock, you need to also setup the API key there.
+
+### RawblockHelpers
+1. Open your experience in the website
+2. Go to `Configure > Secrets` for the Secrets tab.
+3. Press `Create Secret` and name it `RawblockKey`. Set the secret to the same value you put for the Vercel app's `AUTH` key.
+4. Now, to use in your Rawblock experience, go to [Releases](https://github.com/Faizaan-J/rawblock-api-proxy/releases/) and download `RawblockHelpers.rbxmx`.
+5. Open Rawblock Studio
+6. Import `RawblockHelpers.rbxmx` into your experience and put it wherever you want.
+7. To use, refer to the previous sections.
+
+RawblockHelpers should be ready to use then.
