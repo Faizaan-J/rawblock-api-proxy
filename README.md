@@ -161,3 +161,6 @@ From there, the Vercel app should be setup but now to use it in Rawblock, you ne
 7. To use, refer to the previous sections.
 
 RawblockHelpers should be ready to use then.
+
+## License
+This project is under the [MIT License](LICENSE)
