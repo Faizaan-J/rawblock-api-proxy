@@ -18,7 +18,6 @@ const handler = async (request: VercelRequest, response: VercelResponse) => {
   response.status(200).json({
     body: userInfo,
     query: request.query,
-    cookies: request.cookies,
   });
 }
 

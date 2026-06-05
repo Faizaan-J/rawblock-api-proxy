@@ -23,7 +23,6 @@ const handler = async (request: VercelRequest, response: VercelResponse) => {
         response.status(500).json({
             error: "Failed to fetch username history",
             query: request.query,
-            cookies: request.cookies,
         });
         return;
     };
@@ -83,7 +82,6 @@ const handler = async (request: VercelRequest, response: VercelResponse) => {
     response.status(200).json({
         body: simplifiedPage,
         query: request.query,
-        cookies: request.cookies,
     });
 }
 
