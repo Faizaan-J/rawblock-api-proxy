@@ -1,11 +1,11 @@
-import URLCLass from "../classes/URLClass";
+import URLClass from "../classes/URLClass.js";
 
 import type { VercelRequestQuery } from '@vercel/node';
 import * as zod from "zod";
 
 type SortOrderType = "Asc" | "Desc";
 
-class UsernameHistoryURL extends URLCLass {
+class UsernameHistoryURL extends URLClass {
     validationSchema: zod.ZodObject<{ userId: zod.z.ZodCoercedNumber<unknown>; limit: zod.ZodDefault<zod.z.ZodCoercedNumber<unknown>>; sortOrder: zod.ZodDefault<zod.ZodEnum<{ Asc: "Asc"; Desc: "Desc"; }>>; cursor: zod.ZodOptional<zod.ZodString>; }, zod.z.core.$strip>;
     constructor() {
         super();

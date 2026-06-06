@@ -1,5 +1,5 @@
-import PathMetadata from "../../classes/PathMetadata";
-import UsernameHistoryURL from "../../urls/UsernameHistoryURL";
+import PathMetadata from "../../classes/PathMetadata.js";
+import UsernameHistoryURL from "../../urls/UsernameHistoryURL.js";
 import * as zod from "zod";
 
 const metadata: PathMetadata = {

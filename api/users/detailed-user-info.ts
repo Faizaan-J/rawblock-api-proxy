@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import detailedUserInfoURL from '../../urls/DetailedUserInfoURL';
+import detailedUserInfoURL from '../../urls/DetailedUserInfoURL.js';
 
 import { ZodError } from "zod";
 

@@ -1,9 +1,9 @@
-import URLCLass from "../classes/URLClass";
+import URLClass from "../classes/URLClass.js";
 
 import type { VercelRequestQuery } from '@vercel/node';
 import * as zod from "zod";
 
-class DetailedUserInfoURL extends URLCLass {
+class DetailedUserInfoURL extends URLClass {
     validationSchema: zod.ZodObject<{ userId: zod.z.ZodCoercedNumber<unknown>; }, zod.z.core.$strip>;
     constructor() {
         super();
