@@ -11,10 +11,14 @@ class UsernameHistoryURL extends URLCLass {
         super();
 
         this.validationSchema = zod.object({
-            userId: zod.coerce.number().int().positive(),
-            limit: zod.coerce.number().int().positive().default(10).refine((v) => [10, 25, 50, 100].includes(v), { message: "limit must be one of 10, 25, 50, or 100" }),
-            sortOrder: zod.enum(["Asc", "Desc"]).default("Asc"),
+            userId: zod.coerce.number().int().positive()
+                .describe("The user id of the player."),
+            limit: zod.coerce.number().int().positive().default(10).refine((v) => [10, 25, 50, 100].includes(v), { message: "limit must be one of 10, 25, 50, or 100" })
+                .describe("The number of results per request"),
+            sortOrder: zod.enum(["Asc", "Desc"]).default("Asc")
+                .describe("The order the results are sorted in."),
             cursor: zod.string().optional()
+                .describe("The paging cursor for the previous or next page.")
         })
     }
 

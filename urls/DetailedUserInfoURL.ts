@@ -10,6 +10,7 @@ class DetailedUserInfoURL extends URLCLass {
 
         this.validationSchema = zod.object({
             userId: zod.coerce.number().int().positive()
+                .describe("The user id of the player.")
         });
     }
 
