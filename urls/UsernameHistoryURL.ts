@@ -11,7 +11,7 @@ class UsernameHistoryURL extends URLClass {
         this.validationSchema = zod.object({
             userId: zod.coerce.number().int().positive()
                 .describe("The user id of the player."),
-            limit: zod.coerce.number().int().positive().default(10).refine((v) => [10, 25, 50, 100].includes(v), { message: "limit must be one of 10, 25, 50, or 100" })
+            limit: zod.enum(["10", "25", "50", "100"]).transform(Number).default(10)
                 .describe("The number of results per request"),
             sortOrder: zod.enum(["Asc", "Desc"]).default("Asc")
                 .describe("The order the results are sorted in."),
