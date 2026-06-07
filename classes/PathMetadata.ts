@@ -1,5 +1,4 @@
 import type URLClass from "./URLClass.ts";
-import * as zod from "zod"
 
 type PathMetadata = {
     name: string;
@@ -10,7 +9,7 @@ type PathMetadata = {
         JSFetch: string[] | string;
         Rawblock: string[] | string;
     },
-    schematic: zod.ZodObject;
+    schematic: Record<string, any>;
 }
 
 export type { PathMetadata };

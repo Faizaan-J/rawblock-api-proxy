@@ -35,14 +35,21 @@ const metadata: PathMetadata = {
         end
         `
     },
-    schematic: zod.object({
-        body: zod.object({
-            userId: zod.number(),
-        }),
-        query: zod.object({
-            userId: zod.string(),
-        })
-    })
+    schematic: {
+        body: {
+            description: "string",
+            created: "string",
+            isBanned: "boolean",
+            externalAppDisplayName: '"string" | null',
+            hasVerifiedBadge: "boolean",
+            id: "number",
+            name: "string",
+            displayName: "string"
+        },
+        query: {
+            userId: "string"
+        }
+    }
 }
 
 export default metadata;

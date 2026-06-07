@@ -37,19 +37,21 @@ const metadata: PathMetadata = {
         end
         `
     },
-    schematic: zod.object({
-        body: zod.object({
-            usernames: zod.array(zod.string()),
-            previousPageCursor: zod.string().nullable(),
-            nextPageCursor: zod.string().nullable(),
-        }),
-        query: zod.object({
-            userId: zod.string(),
-            limit: zod.string().optional(),
-            sortOrder: zod.string().optional(),
-            cursor: zod.string().optional()
-        })
-    })
+    schematic: {
+        body: {
+            usernames: [
+                "string"
+            ],
+            previousPageCursor: '"string" | null',
+            nextPageCursor: '"string" | null'
+        },
+        query: {
+            userId: "string",
+            limit: "string",
+            sortOrder: "string",
+            cursor: "string"
+        }
+    }
 }
 
 export default metadata;
