@@ -9,7 +9,7 @@ const metadata: PathMetadata = {
     examples: {
         cURL: 
         `
-        curl -X GET "https://rawblock-api-proxy.vercel.app/api/users/username-history?userId=140258990&limit=10&sortOrder=Asc" \
+        curl -X GET "https://rawblock-api-proxy.vercel.app/api/users/username-history?userId=140258990&limit=10&sortOrder=Asc" \\
             -H "Authorization: Bearer {API_KEY_HERE}"
         `,
         JSFetch: 
