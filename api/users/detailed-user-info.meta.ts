@@ -1,11 +1,11 @@
 import type PathMetadata from "../../classes/PathMetadata.ts";
-import UsernameHistoryURL from "../../urls/UsernameHistoryURL.ts";
+import DetailedUserInfoURL from "../../urls/DetailedUserInfoURL.ts";
 import * as zod from "zod";
 
 const metadata: PathMetadata = {
     name: "Detailed User Info",
     description: "Get detailed information about a specific user.",
-    urlClass: UsernameHistoryURL,
+    urlClass: DetailedUserInfoURL,
     examples: {
         cURL: 
         `
