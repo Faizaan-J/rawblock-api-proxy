@@ -13,4 +13,4 @@ type PathMetadata = {
     schematic: zod.ZodObject;
 }
 
-export default PathMetadata;
+export type { PathMetadata };

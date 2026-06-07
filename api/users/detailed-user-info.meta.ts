@@ -1,4 +1,4 @@
-import type PathMetadata from "../../classes/PathMetadata.ts";
+import type { PathMetadata } from "../../classes/PathMetadata.ts";
 import DetailedUserInfoURL from "../../urls/DetailedUserInfoURL.ts";
 import * as zod from "zod";
 
