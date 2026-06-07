@@ -8,6 +8,7 @@
 The app in question doesn't let you make requests to their API from the "experiences" themselves for whatever reason. This is a proxy that lets the scripts in the experience interact with the app's API without restrictions.
 
 ## Current features
+<!--TOBEGENERATED:CURRENT-FEATURES-START-->
 ### Detailed User Info
 Gets detailed user info by user id.
 #### Parameters:
@@ -139,6 +140,7 @@ end
   }
 }
 ```
+<!--TOBEGENERATED:CURRENT-FEATURES-END-->
 ## How to setup Rawblock API Proxy & RawblockHelpers
 ### Rawblock API Proxy
 1. Clone the repository
