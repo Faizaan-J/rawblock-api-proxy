@@ -61,7 +61,7 @@ end
 {
 "body": {
     "description": "string / (example: A brief description of the user.)",
-    "created": "string / (example: 2026-06-07T16:46:58.422Z)",
+    "created": "string / (example: 2026-06-07T20:12:28.173Z)",
     "isBanned": "boolean",
     "externalAppDisplayName": "string | null",
     "hasVerifiedBadge": "boolean",
