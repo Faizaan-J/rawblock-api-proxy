@@ -1,6 +1,6 @@
 import type { PathMetadata } from "../../classes/PathMetadata.ts";
 import UsernameHistoryURL from "../../urls/UsernameHistoryURL.ts";
-import * as zod from "zod";
+import SchematicProperty from "../../classes/SchematicProperty.ts";
 
 const metadata: PathMetadata = {
     name: "Username History",
@@ -40,16 +40,16 @@ const metadata: PathMetadata = {
     schematic: {
         body: {
             usernames: [
-                "string"
+                new SchematicProperty("string", { example: "JohnDoe" }).generateString()
             ],
-            previousPageCursor: '"string" | null',
-            nextPageCursor: '"string" | null'
+            previousPageCursor: new SchematicProperty("string", { nullable: true }).generateString(),
+            nextPageCursor: new SchematicProperty("string", { nullable: true }).generateString()
         },
         query: {
-            userId: "string",
-            limit: "string",
-            sortOrder: "string",
-            cursor: "string"
+            userId: new SchematicProperty("string").generateString(),
+            limit: new SchematicProperty("string", { omittable: true }).generateString(),
+            sortOrder: new SchematicProperty("string", { omittable: true }).generateString(),
+            cursor: new SchematicProperty("string", { nullable: true, omittable: true }).generateString()
         }
     }
 }

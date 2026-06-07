@@ -1,6 +1,6 @@
 import type { PathMetadata } from "../../classes/PathMetadata.ts";
 import DetailedUserInfoURL from "../../urls/DetailedUserInfoURL.ts";
-import * as zod from "zod";
+import SchematicProperty from "../../classes/SchematicProperty.ts";
 
 const metadata: PathMetadata = {
     name: "Detailed User Info",
@@ -37,17 +37,17 @@ const metadata: PathMetadata = {
     },
     schematic: {
         body: {
-            description: "string",
-            created: "string",
-            isBanned: "boolean",
-            externalAppDisplayName: '"string" | null',
-            hasVerifiedBadge: "boolean",
-            id: "number",
-            name: "string",
-            displayName: "string"
+            description: new SchematicProperty("string", { example: "A brief description of the user." }).generateString(),
+            created: new SchematicProperty("string", { example: new Date().toISOString() }).generateString(),
+            isBanned: new SchematicProperty("boolean", { example: false }).generateString(),
+            externalAppDisplayName: new SchematicProperty("string", { nullable: true }).generateString(),
+            hasVerifiedBadge: new SchematicProperty("boolean", { example: false }).generateString(),
+            id: new SchematicProperty("number", { example: 1 }).generateString(),
+            name: new SchematicProperty("string", { example: "John Doe" }).generateString(),
+            displayName: new SchematicProperty("string", { example: "JD" }).generateString()
         },
         query: {
-            userId: "string"
+            userId: new SchematicProperty("string").generateString()
         }
     }
 }
