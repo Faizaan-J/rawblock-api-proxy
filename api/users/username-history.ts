@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import UsernameHistoryURL from '../../urls/UsernameHistoryURL.js';
+import UsernameHistoryURL from '../../urls/UsernameHistoryURL.ts';
 
 import * as zod from "zod";
 

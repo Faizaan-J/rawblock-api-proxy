@@ -1,4 +1,4 @@
-import URLClass from "./URLClass.js";
+import type URLClass from "./URLClass.ts";
 import * as zod from "zod"
 
 type PathMetadata = {
