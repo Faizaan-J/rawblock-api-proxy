@@ -1,7 +1,7 @@
 class HeaderGenerator {
     static generate(name: string, description: string) {
         return [
-            `### ${name}`,
+            `# ${name}`,
             description
         ].join("\n");
     }

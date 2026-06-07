@@ -6,7 +6,7 @@ class ParameterGenerator {
     }
     
     static generate(parameters: ZodParsedResult): string {
-        const header = "#### Parameters";
+        const header = "## Parameters";
         if (parameters.length === 0) {
             return [
                 header,

@@ -13,7 +13,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const apiDirectory = path.join(__dirname, "../api");
-const readmePath = path.join(__dirname, "../README.md");
+const generatedDocsDirectory = path.join(__dirname, "../generated-docs");
 const metadataFileRegex = /^.+\.meta\.ts$/;
 
 type MetadataFileInfo = {
@@ -76,34 +76,34 @@ const zodParserResults: CompleteZodParsedResults = await (async () => {
     return allResults.filter(result => result != null) as CompleteZodParsedResults;
 })();
 
-const fullGeneratedDocs = [];
 for (const result of zodParserResults) {
     if (!result) continue;
     const { metadata, parsedParameters } = result;
     const fullSectionMarkdown = FullSectionGenerator.generate(metadata, parsedParameters);
-    fullGeneratedDocs.push(fullSectionMarkdown);
+    const outputFilePath = path.join(generatedDocsDirectory, `${metadata.name}.md`);
+    fs.writeFileSync(outputFilePath, fullSectionMarkdown, "utf-8");
 }
-const finalMarkdown = fullGeneratedDocs.join("\n");
-fs.readFile(readmePath, "utf-8", (err, data) => {
-    if (err) {
-        console.error("Error reading README.md:", err);
-        return;
-    }
+// const finalMarkdown = fullGeneratedDocs.join("\n");
+// fs.readFile(readmePath, "utf-8", (err, data) => {
+//     if (err) {
+//         console.error("Error reading README.md:", err);
+//         return;
+//     }
 
-    const START_MARKER = "<!--TOBEGENERATED:CURRENT-FEATURES-START-->";
-    const END_MARKER = "<!--TOBEGENERATED:CURRENT-FEATURES-END-->";
+//     const START_MARKER = "<!--TOBEGENERATED:CURRENT-FEATURES-START-->";
+//     const END_MARKER = "<!--TOBEGENERATED:CURRENT-FEATURES-END-->";
 
-    data = data.replace(
-        new RegExp(`${START_MARKER}[\\s\\S]*?${END_MARKER}`, "g"),
-        `${START_MARKER}\n${finalMarkdown}\n${END_MARKER}`
-    )
-    console.log("Generated documentation:\n", finalMarkdown);
-    fs.writeFile(readmePath, data, "utf-8", (err) => {
-        if (err) {
-            console.error("Error writing to README.md:", err);
-            return;
-        }
-    });
-})
+//     data = data.replace(
+//         new RegExp(`${START_MARKER}[\\s\\S]*?${END_MARKER}`, "g"),
+//         `${START_MARKER}\n${finalMarkdown}\n${END_MARKER}`
+//     )
+//     console.log("Generated documentation:\n", finalMarkdown);
+//     fs.writeFile(readmePath, data, "utf-8", (err) => {
+//         if (err) {
+//             console.error("Error writing to README.md:", err);
+//             return;
+//         }
+//     });
+// })
 
 export type { CompleteZodParsedResults };

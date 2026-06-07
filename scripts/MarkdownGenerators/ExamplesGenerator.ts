@@ -14,10 +14,10 @@ class ExamplesGenerator {
             Rawblock = Rawblock.join("\n");
         }
 
-        const header = "#### Examples";
-        const cURLSection = "##### cURL\n" + Codeblock.generate("bash", cURL);
-        const JSFetchSection = "##### JavaScript Fetch\n" + Codeblock.generate("javascript", JSFetch);
-        const RawblockSection = "##### Raw Block\n" + Codeblock.generate("lua", Rawblock);
+        const header = "## Examples";
+        const cURLSection = "### cURL\n" + Codeblock.generate("bash", cURL);
+        const JSFetchSection = "### JavaScript Fetch\n" + Codeblock.generate("javascript", JSFetch);
+        const RawblockSection = "### Raw Block\n" + Codeblock.generate("lua", Rawblock);
 
         return [
             header, 
