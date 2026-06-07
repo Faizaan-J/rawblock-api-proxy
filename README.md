@@ -10,134 +10,138 @@ The app in question doesn't let you make requests to their API from the "experie
 ## Current features
 <!--TOBEGENERATED:CURRENT-FEATURES-START-->
 ### Detailed User Info
-Gets detailed user info by user id.
-#### Parameters:
-1.  [`userId`]:
-    - *Required
-    - [`Type`] Integer
-    - [`Description`] The user id of the player.
+Get detailed information about a specific user.
 
-#### Example
+#### Parameters
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| userId | integer | ✅ | The user id of the player. | - |
+
+#### Examples
 
 ##### cURL
 ```bash
+
 curl -X GET "https://rawblock-api-proxy.vercel.app/api/users/detailed-user-info?userId=1" \
-  -H "Authorization: Bearer {API_KEY_HERE}"
+    -H "Authorization: Bearer {API_KEY_HERE}"
+
 ```
 
-##### Javascript (fetch)
+##### JavaScript Fetch
 ```javascript
+
 const response = fetch("https://rawblock-api-proxy.vercel.app/api/users/detailed-user-info?userId=1", {
     headers: {
         "Authorization": "Bearer {API_KEY_HERE}"
     }
 });
+
 ```
 
-##### Rawblock
+##### Raw Block
 ```lua
+
 local RawblockHelpers = require("./RawblockHelpers") -- replace with the path you put RawblockHelpers in
 
 local Response = RawblockHelpers.GetDetailedUserInfo({
-	UserId = 1
+    UserId = 1
 })
 
 if (Response.success) then
-	local Data = Response.data
+    local Data = Response.data
 else
-	warn(Response.error)
+    warn(Response.error)
 end
+
 ```
 
 #### Schema
+
 ```json
 {
-  "body": {
-    "description": "string",
-    "created": "2014-08-14T15:41:32.713Z",
-    "isBanned": false,
-    "externalAppDisplayName": "string" | null,
-    "hasVerifiedBadge": true,
-    "id": 0,
-    "name": "string",
-    "displayName": "string"
-  },
-  "query": {
+"body": {
+    "description": "string / (example: A brief description of the user.)",
+    "created": "string / (example: 2026-06-07T16:46:58.422Z)",
+    "isBanned": "boolean",
+    "externalAppDisplayName": "string | null",
+    "hasVerifiedBadge": "boolean",
+    "id": "number / (example: 1)",
+    "name": "string / (example: John Doe)",
+    "displayName": "string / (example: JD)"
+},
+"query": {
     "userId": "string"
-  }
+}
 }
 ```
-
 ### Username History
-Retrieves the username history for a particular user by user id
+Get a list of a user's previous usernames.
 
-#### Parameters:
-1.  [`userId`]:
-    - *Required
-    - [`Type`] Integer
-    - [`Description`] The user id of the player.
-2. [`limit`]:
-    - [`Type`] Integer, ONLY 10 | 25 | 50 | 100
-    - [`Description`] The number of results per request
-    - [`Default Value`] 10
-3. [`cursor`]:
-    - [`Type`] String
-    - [`Description`] The paging cursor for the previous or next page.
-4. [`sortOrder`]:
-    - [`Type`] String, "Asc" | "Desc"
-    - [`Description`] The order the results are sorted in.
-    - [`Default Value`] Asc
+#### Parameters
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| userId | integer | ✅ | The user id of the player. | - |
+| limit | 10 \| 25 \| 50 \| 100 | ❌ | The number of results per request | 10 |
+| sortOrder | Asc \| Desc | ❌ | The order the results are sorted in. | Asc |
+| cursor | string | ❌ | The paging cursor for the previous or next page. | - |
 
-#### Example
+#### Examples
 
 ##### cURL
 ```bash
+
 curl -X GET "https://rawblock-api-proxy.vercel.app/api/users/username-history?userId=140258990&limit=10&sortOrder=Asc" \
-  -H "Authorization: Bearer {API_KEY_HERE}"
+    -H "Authorization: Bearer {API_KEY_HERE}"
+
 ```
 
-##### Javascript (fetch)
+##### JavaScript Fetch
 ```javascript
+
 const response = fetch("https://rawblock-api-proxy.vercel.app/api/users/username-history?userId=140258990&limit=10&sortOrder=Asc", {
     headers: {
         "Authorization": "Bearer {API_KEY_HERE}"
     }
 });
+
 ```
 
-##### Rawblock
+##### Raw Block
 ```lua
+
 local RawblockHelpers = require("./RawblockHelpers") -- replace with the path you put RawblockHelpers in
 
 local Response = RawblockHelpers.GetUsernameHistory({
-	UserId = 140258990,
-	SortOrder = "Asc",
-	Limit = 50
+    UserId = 140258990,
+    SortOrder = "Asc",
+    Limit = 50
 })
 
 if (Response.success) then
-	local Data = Response.data
+    local Data = Response.data
 else
-	warn(Response.error)
+    warn(Response.error)
 end
+
 ```
 
 #### Schema
+
 ```json
 {
-  "body": {
+"body": {
     "usernames": [
-      "string"
-      ...
+        "string / (example: JohnDoe)"
     ],
-    "previousPageCursor": "string" | null,
-    "nextPageCursor": "string" | null
-  },
-  "query": {
+    "previousPageCursor": "string | null",
+    "nextPageCursor": "string | null"
+},
+"query": {
     "userId": "string",
-    "limit": "string",
-    "sortOrder": "string"
-  }
+    "limit": "string (may not be present)",
+    "sortOrder": "string (may not be present)",
+    "cursor": "string | null (may not be present)"
+}
 }
 ```
 <!--TOBEGENERATED:CURRENT-FEATURES-END-->
