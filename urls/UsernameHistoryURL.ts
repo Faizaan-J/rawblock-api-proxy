@@ -3,10 +3,8 @@ import URLClass from "../classes/URLClass.ts";
 import type { VercelRequestQuery } from '@vercel/node';
 import * as zod from "zod";
 
-type SortOrderType = "Asc" | "Desc";
-
 class UsernameHistoryURL extends URLClass {
-    validationSchema: zod.ZodObject<{ userId: zod.z.ZodCoercedNumber<unknown>; limit: zod.ZodDefault<zod.z.ZodCoercedNumber<unknown>>; sortOrder: zod.ZodDefault<zod.ZodEnum<{ Asc: "Asc"; Desc: "Desc"; }>>; cursor: zod.ZodOptional<zod.ZodString>; }, zod.z.core.$strip>;
+    validationSchema;
     constructor() {
         super();
 

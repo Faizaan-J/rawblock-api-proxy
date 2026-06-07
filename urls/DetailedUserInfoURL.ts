@@ -4,7 +4,7 @@ import type { VercelRequestQuery } from '@vercel/node';
 import * as zod from "zod";
 
 class DetailedUserInfoURL extends URLClass {
-    validationSchema: zod.ZodObject<{ userId: zod.z.ZodCoercedNumber<unknown>; }, zod.z.core.$strip>;
+    validationSchema;
     constructor() {
         super();
 
