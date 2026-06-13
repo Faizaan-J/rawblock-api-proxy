@@ -2,6 +2,10 @@ import type { PathMetadata } from "../../classes/PathMetadata.ts";
 import Codeblock from "./Codeblock.ts";
 
 class ExamplesGenerator {
+    static surroundWithTabItem(content: string, value: string, label: string): string {
+        return `<TabItem value="${value}" label="${label}">\n\n${content}\n\n</TabItem>`;
+    }
+
     static generate(examples: PathMetadata["examples"]): string {
         let { cURL, JSFetch, Rawblock } = examples;
         if (Array.isArray(cURL)) {
@@ -15,15 +19,19 @@ class ExamplesGenerator {
         }
 
         const header = "## Examples";
-        const cURLSection = "### cURL\n" + Codeblock.generate("bash", cURL);
-        const JSFetchSection = "### JavaScript Fetch\n" + Codeblock.generate("javascript", JSFetch);
-        const RawblockSection = "### Raw Block\n" + Codeblock.generate("lua", Rawblock);
+        // const cURLSection = "### cURL\n" + Codeblock.generate("bash", cURL);
+        const cURLSection = this.surroundWithTabItem(Codeblock.generate("bash", cURL), "curl", "cURL");
+        const JSFetchSection = this.surroundWithTabItem(Codeblock.generate("javascript", JSFetch), "js", "JavaScript Fetch");
+        const RawblockSection = this.surroundWithTabItem(Codeblock.generate("lua", Rawblock), "lua", "Raw Block");
 
         return [
-            header, 
+            header,
+            "<Tabs>",
             cURLSection, 
             JSFetchSection, 
-            RawblockSection]
+            RawblockSection,
+            "</Tabs>"
+        ]
         .join("\n\n");
     }
 }

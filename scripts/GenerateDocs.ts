@@ -76,11 +76,19 @@ const zodParserResults: CompleteZodParsedResults = await (async () => {
     return allResults.filter(result => result != null) as CompleteZodParsedResults;
 })();
 
+// this method is vibecoded
+const convertToKebabCase = (str: string) => {
+    return str
+        .replace(/([a-z])([A-Z])/g, "$1-$2")
+        .replace(/[\s_]+/g, "-")
+        .toLowerCase();
+};
+
 for (const result of zodParserResults) {
     if (!result) continue;
     const { metadata, parsedParameters } = result;
-    const fullSectionMarkdown = FullSectionGenerator.generate(metadata, parsedParameters);
-    const outputFilePath = path.join(generatedDocsDirectory, `${metadata.name}.md`);
+    const fullSectionMarkdown = FullSectionGenerator.generate(metadata, parsedParameters, zodParserResults.indexOf(result));
+    const outputFilePath = path.join(generatedDocsDirectory, `${convertToKebabCase(metadata.name)}.mdx`);
     fs.writeFileSync(outputFilePath, fullSectionMarkdown, "utf-8");
 }
 // const finalMarkdown = fullGeneratedDocs.join("\n");
