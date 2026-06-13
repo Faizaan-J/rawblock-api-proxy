@@ -1,0 +1,8 @@
+{
+  "label": "API Endpoints",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "API information for all endpoints."
+  }
+}

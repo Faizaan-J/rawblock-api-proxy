@@ -1,0 +1,69 @@
+---
+sidebar_position: 1
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Detailed User Info
+Get detailed information about a specific user.
+
+## Parameters
+| Name | Type | Required | Description | Default |
+| ---- | ---- | -------- | ----------- | ------- |
+| userId | integer | ✅ | The user id of the player. | - |
+
+## Examples
+
+<Tabs>
+  <TabItem value="curl" label="cURL">
+```bash
+curl -X GET "https://rawblock-api-proxy.vercel.app/api/users/detailed-user-info?userId=1" \
+    -H "Authorization: Bearer {API_KEY_HERE}"
+```
+  </TabItem>
+  <TabItem value="javascript" label="JavaScript">
+```javascript
+const response = fetch("https://rawblock-api-proxy.vercel.app/api/users/detailed-user-info?userId=1", {
+    headers: {
+        "Authorization": "Bearer {API_KEY_HERE}"
+    }
+});
+```
+  </TabItem>
+  <TabItem value="lua" label="RawblockHelpers">
+```lua
+local RawblockHelpers = require("./RawblockHelpers") -- replace with the path you put RawblockHelpers in
+
+local Response = RawblockHelpers.GetDetailedUserInfo({
+    UserId = 1
+})
+
+if (Response.success) then
+    local Data = Response.data
+else
+    warn(Response.error)
+end
+```
+  </TabItem>
+</Tabs>
+
+## Schema
+
+```json
+{
+"body": {
+    "description": "string / (example: A brief description of the user.)",
+    "created": "string / (example: 2026-06-07T20:48:35.557Z)",
+    "isBanned": "boolean",
+    "externalAppDisplayName": "string | null",
+    "hasVerifiedBadge": "boolean",
+    "id": "number / (example: 1)",
+    "name": "string / (example: John Doe)",
+    "displayName": "string / (example: JD)"
+},
+"query": {
+    "userId": "string"
+}
+}
+```
