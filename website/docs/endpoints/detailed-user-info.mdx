@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 0
 ---
 
 import Tabs from '@theme/Tabs';
@@ -16,23 +16,36 @@ Get detailed information about a specific user.
 ## Examples
 
 <Tabs>
-  <TabItem value="curl" label="cURL">
+
+<TabItem value="curl" label="cURL">
+
 ```bash
+
 curl -X GET "https://rawblock-api-proxy.vercel.app/api/users/detailed-user-info?userId=1" \
     -H "Authorization: Bearer {API_KEY_HERE}"
+
 ```
-  </TabItem>
-  <TabItem value="javascript" label="JavaScript">
+
+</TabItem>
+
+<TabItem value="js" label="JavaScript Fetch">
+
 ```javascript
+
 const response = fetch("https://rawblock-api-proxy.vercel.app/api/users/detailed-user-info?userId=1", {
     headers: {
         "Authorization": "Bearer {API_KEY_HERE}"
     }
 });
+
 ```
-  </TabItem>
-  <TabItem value="lua" label="RawblockHelpers">
+
+</TabItem>
+
+<TabItem value="lua" label="Raw Block">
+
 ```lua
+
 local RawblockHelpers = require("./RawblockHelpers") -- replace with the path you put RawblockHelpers in
 
 local Response = RawblockHelpers.GetDetailedUserInfo({
@@ -44,8 +57,11 @@ if (Response.success) then
 else
     warn(Response.error)
 end
+
 ```
-  </TabItem>
+
+</TabItem>
+
 </Tabs>
 
 ## Schema
@@ -54,7 +70,7 @@ end
 {
 "body": {
     "description": "string / (example: A brief description of the user.)",
-    "created": "string / (example: 2026-06-07T20:48:35.557Z)",
+    "created": "string / (example: 2026-06-14T14:39:29.243Z)",
     "isBanned": "boolean",
     "externalAppDisplayName": "string | null",
     "hasVerifiedBadge": "boolean",
