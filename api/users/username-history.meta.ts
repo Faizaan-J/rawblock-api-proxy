@@ -44,12 +44,6 @@ const metadata: PathMetadata = {
             ],
             previousPageCursor: new SchematicProperty("string", { nullable: true }).generateString(),
             nextPageCursor: new SchematicProperty("string", { nullable: true }).generateString()
-        },
-        query: {
-            userId: new SchematicProperty("string").generateString(),
-            limit: new SchematicProperty("string", { omittable: true }).generateString(),
-            sortOrder: new SchematicProperty("string", { omittable: true }).generateString(),
-            cursor: new SchematicProperty("string", { nullable: true, omittable: true }).generateString()
         }
     }
 }

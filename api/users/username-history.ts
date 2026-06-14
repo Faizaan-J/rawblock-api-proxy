@@ -21,8 +21,7 @@ const handler = async (request: VercelRequest, response: VercelResponse) => {
     console.log(fetchedUsernameHistoryPage, "fetchedUsernameHistoryPage");
     if (!fetchedUsernameHistoryPage) {
         response.status(500).json({
-            error: "Failed to fetch username history",
-            query: request.query,
+            error: "Failed to fetch username history"
         });
         return;
     };
@@ -42,8 +41,7 @@ const handler = async (request: VercelRequest, response: VercelResponse) => {
                     so if given an empty message, assume we got rate limited
                 */
                 response.status(429).json({
-                    error: "Rate limited",
-                    query: request.query
+                    error: "Rate limited"
                 });
                 return;
             }
@@ -51,14 +49,12 @@ const handler = async (request: VercelRequest, response: VercelResponse) => {
             const isFieldError = "field" in firstError;
             if (isFieldError) {
                 response.status(400).json({
-                    error: firstError,
-                    query: request.query,
+                    error: firstError
                 });
                 return;
             } else {
                 response.status(500).json({
-                    error: "Unknown error",
-                    query: request.query,
+                    error: "Unknown error"
                 });
                 return;
             }
@@ -80,8 +76,7 @@ const handler = async (request: VercelRequest, response: VercelResponse) => {
     }
 
     response.status(200).json({
-        body: simplifiedPage,
-        query: request.query,
+        body: simplifiedPage
     });
 }
 

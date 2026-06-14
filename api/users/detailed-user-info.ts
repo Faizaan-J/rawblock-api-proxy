@@ -1,8 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import detailedUserInfoURL from '../../urls/DetailedUserInfoURL.ts';
 
-import { ZodError } from "zod";
-
 const handler = async (request: VercelRequest, response: VercelResponse) => {
   const urlResult = detailedUserInfoURL.generate(request.query);
   if (!(urlResult instanceof URL)) {
@@ -16,8 +14,7 @@ const handler = async (request: VercelRequest, response: VercelResponse) => {
   const userInfo = await fetchResponse.json();
 
   response.status(200).json({
-    body: userInfo,
-    query: request.query,
+    body: userInfo
   });
 }
 

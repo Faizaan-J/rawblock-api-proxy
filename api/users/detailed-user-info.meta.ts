@@ -45,9 +45,6 @@ const metadata: PathMetadata = {
             id: new SchematicProperty("number", { example: 1 }).generateString(),
             name: new SchematicProperty("string", { example: "John Doe" }).generateString(),
             displayName: new SchematicProperty("string", { example: "JD" }).generateString()
-        },
-        query: {
-            userId: new SchematicProperty("string").generateString()
         }
     }
 }
