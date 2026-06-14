@@ -30,15 +30,27 @@ jobs:
       - name: Run generator script
         run: npm run docs
 
+      - name: Switch to docs branch
+        run: |
+          git fetch origin docs
+          git checkout -B docs origin/docs
+      
+      - name: Replace with new docs
+        run: |
+          cd website
+          find docs/endpoints -type f -name "*.mdx" -delete
+          find docs/endpoints -type f -name "*.md" -delete
+          mv ../generated-docs/*.mdx docs/endpoints/
+
       - name: Commit and push changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add README.md
+          git -C website add -A docs/endpoints
 
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "DOCS: Update README with latest API documentation"
-            git push
+            git commit -m "DOCS: Update documentation with latest API changes"
+            git push origin docs
           fi
