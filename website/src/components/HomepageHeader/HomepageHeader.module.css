@@ -1,0 +1,137 @@
+body:has(.hero) :global(nav.navbar) {
+  display: none;
+}
+
+.heroBanner {
+  padding: 4rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 2rem;
+  }
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero {
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  background: var(--sh-black);
+  overflow: hidden;
+}
+
+.heroInner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  padding: 6rem 2rem;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes logoRotateIn {
+    from { opacity: 0; transform: rotate(-10deg) scale(0.8); }
+    to   { opacity: 1; transform: rotate(0) scale(1); }
+}
+
+.logoWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    animation: logoRotateIn 0.7s ease both;
+}
+
+.heroText {
+  flex: 1;
+  animation: fadeUp 0.7s ease both;
+}
+
+.heroTitle {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: clamp(4rem, 10vw, 8rem);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  color: var(--sh-white);
+  margin: 0 0 1.25rem;
+}
+
+.heroAccentWord {
+  display: block;
+  color: var(--ifm-color-primary);
+}
+
+.heroSubtitle {
+  font-size: 5rem;
+  color: var(--sh-muted);
+  max-width: 500px;
+  line-height: 1.6;
+  margin: 0 0 2.5rem;
+}
+
+.startButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 2px solid white;
+  color: var(--sh-white) !important;
+  border-radius: var(--ifm-pagination-nav-border-radius);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  padding: 0.8rem 1.8rem;
+  transition: background 0.2s, transform 0.15s, border-color 0.2s;
+}
+
+.startButton:hover {
+  border-color: var(--ifm-pagination-nav-color-hover);
+  transform: translateY(-1px);
+}
+
+.startButtonArrow {
+  transition: transform 0.2s;
+}
+
+.startButton:hover .startButtonArrow {
+  transform: translateX(4px);
+}
+
+.ctaSecondary {
+  display: inline-flex;
+  align-items: center;
+  background: transparent;
+  color: var(--sh-white) !important;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none !important;
+  padding: 0.8rem 1.8rem;
+  border: 2px solid var(--sh-border);
+  transition: border-color 0.2s, transform 0.15s;
+}
+
+.ctaSecondary:hover {
+  border-color: rgba(255 255 255 / 0.3);
+  transform: translateY(-1px);
+}

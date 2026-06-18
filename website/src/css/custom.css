@@ -29,10 +29,6 @@
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
-.hero {
-  flex: auto;
-}
-
-.hero--primary {
-
+div.main-wrapper {
+  min-height: 100lvh;
 }

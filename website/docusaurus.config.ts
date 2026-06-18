@@ -57,24 +57,11 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'Rawblock Documentation',
+      title: 'RawBlock API Proxy',
       logo: {
         alt: 'Rawblock Logo',
         src: 'img/RawblockLogo.png',
       },
-      items: [
-        {
-          type: 'docSidebar',
-          sidebarId: 'endpointsSidebar',
-          position: 'left',
-          label: 'Introduction',
-        },
-        {
-          href: 'https://github.com/Faizaan-J/rawblock-api-proxy',
-          label: 'rawblock-api-proxy',
-          position: 'right',
-        },
-      ],
     },
     footer: {
       style: 'dark',
