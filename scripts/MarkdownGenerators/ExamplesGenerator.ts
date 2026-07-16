@@ -19,10 +19,9 @@ class ExamplesGenerator {
         }
 
         const header = "## Examples";
-        // const cURLSection = "### cURL\n" + Codeblock.generate("bash", cURL);
         const cURLSection = this.surroundWithTabItem(Codeblock.generate("bash", cURL), "curl", "cURL");
         const JSFetchSection = this.surroundWithTabItem(Codeblock.generate("javascript", JSFetch), "js", "JavaScript Fetch");
-        const RawblockSection = this.surroundWithTabItem(Codeblock.generate("lua", Rawblock), "lua", "Raw Block");
+        const RawblockSection = this.surroundWithTabItem(Codeblock.generate("lua", Rawblock), "lua", "Luau");
 
         return [
             header,
