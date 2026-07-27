@@ -35,4 +35,3 @@ RawblockHelpers should be ready to use then.
 
 ## License
 This project is under the [MIT License](LICENSE)
-
