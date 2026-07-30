@@ -31,7 +31,7 @@ const metadata: PathMetadata = {
         })
 
         if (Response.success) then
-            local Data = Response.data
+            local Data = Response.data.body
         else
             warn(Response.error)
         end

@@ -2,8 +2,8 @@ import type { PathMetadata } from "../../classes/PathMetadata.ts";
 import Codeblock from "./Codeblock.ts";
 
 class ExamplesGenerator {
-    static surroundWithTabItem(content: string, value: string, label: string): string {
-        return `<TabItem value="${value}" label="${label}">\n\n${content}\n\n</TabItem>`;
+    static surroundWithTabItem(content: string, value: string, label: string, isDefault?: boolean): string {
+        return `<TabItem value="${value}" label="${label}" ${isDefault ? 'default' : ''}>\n\n${content}\n\n</TabItem>`;
     }
 
     static generate(examples: PathMetadata["examples"]): string {
@@ -21,7 +21,7 @@ class ExamplesGenerator {
         const header = "## Examples";
         const cURLSection = this.surroundWithTabItem(Codeblock.generate("bash", cURL), "curl", "cURL");
         const JSFetchSection = this.surroundWithTabItem(Codeblock.generate("javascript", JSFetch), "js", "JavaScript Fetch");
-        const RawblockSection = this.surroundWithTabItem(Codeblock.generate("lua", Rawblock), "lua", "Luau");
+        const RawblockSection = this.surroundWithTabItem(Codeblock.generate("lua", Rawblock), "lua", "Luau", true);
 
         return [
             header,
