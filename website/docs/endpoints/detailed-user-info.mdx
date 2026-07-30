@@ -17,7 +17,7 @@ Get detailed information about a specific user.
 
 <Tabs>
 
-<TabItem value="curl" label="cURL">
+<TabItem value="curl" label="cURL" >
 
 ```bash
 
@@ -28,7 +28,7 @@ curl -X GET "https://rawblock-api-proxy.vercel.app/api/users/detailed-user-info?
 
 </TabItem>
 
-<TabItem value="js" label="JavaScript Fetch">
+<TabItem value="js" label="JavaScript Fetch" >
 
 ```javascript
 
@@ -42,7 +42,7 @@ const response = fetch("https://rawblock-api-proxy.vercel.app/api/users/detailed
 
 </TabItem>
 
-<TabItem value="lua" label="Luau">
+<TabItem value="lua" label="Luau" default>
 
 ```lua
 
@@ -53,7 +53,7 @@ local Response = RawblockHelpers.GetDetailedUserInfo({
 })
 
 if (Response.success) then
-    local Data = Response.data
+    local Data = Response.data.body
 else
     warn(Response.error)
 end
@@ -70,7 +70,7 @@ end
 {
 "body": {
     "description": "string / (example: A brief description of the user.)",
-    "created": "string / (example: 2026-07-27T22:24:34.096Z)",
+    "created": "string / (example: 2026-07-30T14:22:54.072Z)",
     "isBanned": "boolean",
     "externalAppDisplayName": "string | null",
     "hasVerifiedBadge": "boolean",

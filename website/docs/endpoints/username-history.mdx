@@ -20,7 +20,7 @@ Get a list of a user's previous usernames.
 
 <Tabs>
 
-<TabItem value="curl" label="cURL">
+<TabItem value="curl" label="cURL" >
 
 ```bash
 
@@ -31,7 +31,7 @@ curl -X GET "https://rawblock-api-proxy.vercel.app/api/users/username-history?us
 
 </TabItem>
 
-<TabItem value="js" label="JavaScript Fetch">
+<TabItem value="js" label="JavaScript Fetch" >
 
 ```javascript
 
@@ -45,7 +45,7 @@ const response = fetch("https://rawblock-api-proxy.vercel.app/api/users/username
 
 </TabItem>
 
-<TabItem value="lua" label="Luau">
+<TabItem value="lua" label="Luau" default>
 
 ```lua
 
@@ -58,7 +58,7 @@ local Response = RawblockHelpers.GetUsernameHistory({
 })
 
 if (Response.success) then
-    local Data = Response.data
+    local Data = Response.data.body
 else
     warn(Response.error)
 end
