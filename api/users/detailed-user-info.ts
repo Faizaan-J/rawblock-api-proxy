@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import detailedUserInfoURL from '../../urls/DetailedUserInfoURL.ts';
+import detailedUserInfoURL from '../../urls/DetailedUserInfoURL.js';
 
 const handler = async (request: VercelRequest, response: VercelResponse) => {
   const urlResult = detailedUserInfoURL.generate(request.query);

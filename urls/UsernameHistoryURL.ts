@@ -1,4 +1,4 @@
-import URLClass from "../classes/URLClass.ts";
+import URLClass from "../classes/URLClass.js";
 
 import type { VercelRequestQuery } from '@vercel/node';
 import * as zod from "zod";

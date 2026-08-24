@@ -1,4 +1,4 @@
-import type URLClass from "./URLClass.ts";
+import type URLClass from "./URLClass.js";
 
 type PathMetadata = {
     name: string;

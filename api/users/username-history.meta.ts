@@ -1,6 +1,6 @@
-import type { PathMetadata } from "../../classes/PathMetadata.ts";
-import UsernameHistoryURL from "../../urls/UsernameHistoryURL.ts";
-import SchematicProperty from "../../classes/SchematicProperty.ts";
+import type { PathMetadata } from "../../classes/PathMetadata.js";
+import UsernameHistoryURL from "../../urls/UsernameHistoryURL.js";
+import SchematicProperty from "../../classes/SchematicProperty.js";
 
 const metadata: PathMetadata = {
     name: "Username History",

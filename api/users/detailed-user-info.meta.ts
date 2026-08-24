@@ -1,6 +1,6 @@
-import type { PathMetadata } from "../../classes/PathMetadata.ts";
-import DetailedUserInfoURL from "../../urls/DetailedUserInfoURL.ts";
-import SchematicProperty from "../../classes/SchematicProperty.ts";
+import type { PathMetadata } from "../../classes/PathMetadata.js";
+import DetailedUserInfoURL from "../../urls/DetailedUserInfoURL.js";
+import SchematicProperty from "../../classes/SchematicProperty.js";
 
 const metadata: PathMetadata = {
     name: "Detailed User Info",
@@ -43,8 +43,8 @@ const metadata: PathMetadata = {
             externalAppDisplayName: new SchematicProperty("string", { nullable: true }).generateString(),
             hasVerifiedBadge: new SchematicProperty("boolean", { example: false }).generateString(),
             id: new SchematicProperty("number", { example: 1 }).generateString(),
-            name: new SchematicProperty("string", { example: "John Doe" }).generateString(),
-            displayName: new SchematicProperty("string", { example: "JD" }).generateString()
+            name: new SchematicProperty("string", { example: "JohnDoe" }).generateString(),
+            displayName: new SchematicProperty("string", { example: "BigJD" }).generateString()
         }
     }
 }
