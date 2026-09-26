@@ -53,6 +53,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "DOCS: Update documentation with latest API changes"
+            git commit -m "docs: generate and update documentation pages"
             git push origin docs
           fi
